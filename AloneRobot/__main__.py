@@ -395,7 +395,7 @@ def Alone_about_callback(update: Update, context: CallbackContext):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Sᴜᴩᴩᴏʀᴛ", callback_data="alone_support"
+                            text="Sᴜᴩᴩᴏʀᴛ", url="https://t.me/snowy_hometown"
                         ),
                         InlineKeyboardButton(
                             text="ᴄᴏᴍᴍᴀɴᴅs 💁", callback_data="Main_help"
