@@ -3,10 +3,10 @@ import asyncio
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from Spy import YouTube, app
-from Spy.core.call import Sagar
-from Spy.misc import SUDOERS, db
-from Spy.utils.database import (
+from AloneRobot import YouTube, app
+from AloneRobot.core.call import Sagar
+from AloneRobot.misc import SUDOERS, db
+from AloneRobot.utils.database import (
     get_active_chats,
     get_lang,
     get_upvote_count,
@@ -17,11 +17,11 @@ from Spy.utils.database import (
     music_on,
     set_loop,
 )
-from Spy.utils.decorators.language import languageCB
-from Spy.utils.formatters import seconds_to_min
-from Spy.utils.inline import close_markup, stream_markup, stream_markup_timer
-from Spy.utils.stream.autoclear import auto_clean
-from Spy.utils.thumbnails import get_thumb
+from AloneRobot.utils.decorators.language import languageCB
+from AloneRobot.utils.formatters import seconds_to_min
+from AloneRobot.utils.inline import close_markup, stream_markup, stream_markup_timer
+from AloneRobot.utils.stream.autoclear import auto_clean
+from AloneRobot.utils.thumbnails import get_thumb
 from config import (
     BANNED_USERS,
     SUPPORT_CHAT,
@@ -395,3 +395,4 @@ async def markup_timer():
 
 
 asyncio.create_task(markup_timer())
+
