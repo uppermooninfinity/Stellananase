@@ -68,7 +68,7 @@ async def global_ban(client, message: Message, _):
     await mystic.delete()
 
 
-@app.on_message(filters.command(["ungban"]) & SUDOERS)
+@app.on_message(filters.command(["unrgban"]) & SUDOERS)
 @language
 async def global_un(client, message: Message, _):
     if not message.reply_to_message:
@@ -100,7 +100,7 @@ async def global_un(client, message: Message, _):
     await mystic.delete()
 
 
-@app.on_message(filters.command(["gbannedusers", "gbanlist"]) & SUDOERS)
+@app.on_message(filters.command(["rbannedusers", "rbanlist"]) & SUDOERS)
 @language
 async def gbanned_list(client, message: Message, _):
     counts = await get_banned_count()
