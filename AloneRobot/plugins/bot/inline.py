@@ -50,6 +50,8 @@ async def inline_query_handler(client, query):
 🎥 <b>ᴄʜᴀɴɴᴇʟ :</b> <a href={channellink}>{channel}</a>
 ⏰ <b>ᴘᴜʙʟɪsʜᴇᴅ ᴏɴ :</b> {published}
 
+🥀 <b>ᴍᴀᴅᴇ ʙʏ💗: [ ✦ sᴇɢғᴀᴜʟᴛᴇᴅ ❕](https://t.me/owner_of_itachi)</b>
+
 
 <u><b>➻ ɪɴʟɪɴᴇ sᴇᴀʀᴄʜ ᴍᴏᴅᴇ ʙʏ {app.name}</b></u>"""
             answers.append(
