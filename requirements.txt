@@ -30,7 +30,7 @@ markdown2==2.5.0
 MukeshAPI
 motor==3.6.0
 nekos.py
-opencv-python
+opencv-python-headless
 pretty-errors
 pydictionary==2.0.1
 pyfiglet
