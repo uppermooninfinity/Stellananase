@@ -33,7 +33,7 @@
        "description": "Pyrogram string session for user account (generate using session string generator)",
        "required": true,
        "value": ""
-    }
+    },
     "ALLOW_EXCL": {
        "description": "Set this to True if you want ! to be a command prefix along with /. Recommended is True",
        "value": "True"
