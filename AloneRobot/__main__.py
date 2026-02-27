@@ -122,6 +122,7 @@ DONATE_STRING = f"""ʜᴇʏ ʙᴀʙʏ,
 
 ʏᴏᴜ ᴄᴀɴ ᴅɪʀᴇᴄᴛʟʏ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ @uchiha_owner ғᴏʀ ᴅᴏɴᴀᴛɪɴɢ ᴏʀ ʏᴏᴜ ᴄᴀɴ ᴠɪsɪᴛ ᴍʏ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ @snowy_hometown ᴀɴᴅ ᴀsᴋ ᴛʜᴇʀᴇ ᴀʙᴏᴜᴛ ᴅᴏɴᴀᴛɪᴏɴ."""
 
+
 IMPORTED = {}
 MIGRATEABLE = []
 HELPABLE = {}
@@ -132,24 +133,21 @@ DATA_EXPORT = []
 CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
-for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("AloneRobot.modules." + module_name)
+
+def register(imported_module):
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
-for file in os.listdir("AloneRobot/plugins"):
-    if file.endswith(".py") and not file.startswith("__"):
-        importlib.import_module("AloneRobot.plugins." + file[:-3])
+    name = imported_module.__mod_name__.lower()
 
-    if imported_module.__mod_name__.lower() not in IMPORTED:
-        IMPORTED[imported_module.__mod_name__.lower()] = imported_module
-    else:
-        raise Exception("Can't have two modules with the same name! Please change one")
+    if name in IMPORTED:
+        raise Exception(f"Can't have two modules with the same name! ({name})")
+
+    IMPORTED[name] = imported_module
 
     if hasattr(imported_module, "__help__") and imported_module.__help__:
-        HELPABLE[imported_module.__mod_name__.lower()] = imported_module
+        HELPABLE[name] = imported_module
 
-    # Chats to migrate on chat_migrated events
     if hasattr(imported_module, "__migrate__"):
         MIGRATEABLE.append(imported_module)
 
@@ -166,10 +164,25 @@ for file in os.listdir("AloneRobot/plugins"):
         DATA_EXPORT.append(imported_module)
 
     if hasattr(imported_module, "__chat_settings__"):
-        CHAT_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
+        CHAT_SETTINGS[name] = imported_module
 
     if hasattr(imported_module, "__user_settings__"):
-        USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
+        USER_SETTINGS[name] = imported_module
+
+
+def autoload(package):
+    package_path = package.replace(".", "/")
+
+    for file in os.listdir(package_path):
+        if file.endswith(".py") and not file.startswith("__"):
+            module_name = file[:-3]
+            imported_module = importlib.import_module(f"{package}.{module_name}")
+            register(imported_module)
+
+
+# AUTO LOAD EVERYTHING
+autoload("AloneRobot.modules")
+autoload("AloneRobot.plugins")
 
 
 # do not async
@@ -179,6 +192,7 @@ def send_help(chat_id, text, keyboard=None):
     dispatcher.bot.send_photo(
         chat_id=chat_id,
         photo=START_IMG,
+        has_spoiler=True
         caption=text,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=keyboard,
