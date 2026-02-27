@@ -14,7 +14,7 @@ API_HASH = os.getenv("API_HASH", "")
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
 
-MONGO_DB_URI = os.getenv("MONGO_DB_URI", "")
+MONGO_DB_URI = os.getenv("MONGO_DB_URI", "mongodb+srv://knight4563:knight4563@cluster0.a5br0se.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 DURATION_LIMIT_MIN = int(os.getenv("DURATION_LIMIT", 54000))
 
@@ -22,11 +22,11 @@ SONG_DOWNLOAD_DURATION = int(
     os.getenv("SONG_DOWNLOAD_DURATION_LIMIT", "54000")
 )
 
-LOGGER_ID = int(os.getenv("LOGGER_ID", ""))
+LOGGER_ID = int(os.getenv("LOGGER_ID", "-1003802065017"))
 
-OWNER_ID = int(os.getenv("OWNER_ID", ""))
+OWNER_ID = int(os.getenv("OWNER_ID", "7651303468"))
 
-BOT_USERNAME = os.getenv("BOT_USERNAME" , "")
+BOT_USERNAME = os.getenv("BOT_USERNAME" , "stella_management_bot")
 
 COMMAND_HANDLER = os.getenv("COMMAND_HANDLER", "! / .").split()
 
@@ -36,7 +36,7 @@ HEROKU_API_KEY = os.getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = os.getenv(
     "UPSTREAM_REPO",
-    "",
+    "https://github.com/uppermooninfinity/Stellananase",
 )
 UPSTREAM_BRANCH = os.getenv("UPSTREAM_BRANCH", "https://github.com/uppermooninfinity/Stellananase")
 GIT_TOKEN = os.getenv(
