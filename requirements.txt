@@ -54,5 +54,5 @@ wikipedia==1.4.0
 wget
 yt_dlp
 youtube_search
-youtube_search_python
+youtube-search-python
 psycopg2-binary==2.9.11
