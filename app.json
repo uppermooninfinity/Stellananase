@@ -27,8 +27,13 @@
     "API_HASH": {
        "description": "Get this value from my.telegram.org/apps.",
        "required": true,
-       "value": "931051ff310e587ac41154ed3d516f06"
+       "value": "931051ff310e587ac41154ed3d516f06"       
     },
+    "STRING_SESSION": {
+       "description": "Pyrogram string session for user account (generate using session string generator)",
+       "required": true,
+       "value": ""
+    }
     "ALLOW_EXCL": {
        "description": "Set this to True if you want ! to be a command prefix along with /. Recommended is True",
        "value": "True"
@@ -45,7 +50,7 @@
     "EVENT_LOGS": {
        "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
        "required": true,
-       "value": ""
+       "value": "-1003634796457"
     },
     "MONGO_DB_URI": {
        "description": "Required for database connections.",
@@ -55,12 +60,12 @@
     "CASH_API_KEY": {
         " description": " Get your API key from https://www.alphavantage.co/support/#api-key",
         "required": false,
-        "value": ""
+        "value": "43Q2WQ4GWIDQIAAD"
     },
     "TIME_API_KEY": {
         "description": " Get your API key from https://timezonedb.com/api",
         "required": false,
-        "value": ""
+        "value": "JW2836G01FZE"
     },
     "CHATBOT_API": {
         "description":"Get your API key from @AloneXRobot using /token",
