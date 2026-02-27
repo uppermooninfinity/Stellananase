@@ -114,6 +114,9 @@ class Call(PyTgCalls):
         try:
             await _clear_(chat_id)
             await assistant.leave_group_call(chat_id)
+
+        #stream end krke delete krega msg 
+        await app.delete_messages(chat_id, play_msg.get(chat_id))
         except:
             pass
 
