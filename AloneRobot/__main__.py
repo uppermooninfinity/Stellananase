@@ -147,8 +147,14 @@ def register(imported_module):
         HELPABLE[name] = imported_module
 
     if hasattr(imported_module, "__migrate__"):
+       MIGRATEABLE.append(imported_module)
+        
+    if hasattr(imported_module, "__play__"):
         MIGRATEABLE.append(imported_module)
 
+    if hasattr(imported_module, "__vccall__"):
+        MIGRATEABLE.append(imported_module)
+        
     if hasattr(imported_module, "__stats__"):
         STATS.append(imported_module)
 
