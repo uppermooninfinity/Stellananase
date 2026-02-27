@@ -672,7 +672,15 @@ async def slider_queries(client, CallbackQuery, _):
 
 __mod_name__ = "play"
 __command_list__ = [
-/play
-/vplay
-/playforce
-/cplay
+  "play",
+  "vplay",
+  "playforce",
+  "cplay",
+
+    ]
+
+__handlers__ = [
+    ANIMEQUOTES_HANDLER,
+    QUOTES_HANDLER,
+]
+
