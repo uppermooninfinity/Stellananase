@@ -18,6 +18,9 @@ def track_markup(_, videoid, user_id, channel, fplay):
             ),
         ],
         [
+        InlineKeyboardButton(text="💌 ʏᴛ-ᴀᴘɪ", callback_data="bot_info_data"),
+        ],
+        [
             InlineKeyboardButton("㉨ ᴘʀᴏᴍᴏ ⁠㉨", url="https://t.me/cyber_github"),
             InlineKeyboardButton("⁠㉨ ɢʀᴏᴜᴘ ᴄʜᴀᴛ ⁠㉨", url="https://t.me/snowy_hometown"),
         ],
