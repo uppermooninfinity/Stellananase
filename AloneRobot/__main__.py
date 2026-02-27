@@ -107,7 +107,8 @@ buttons = [
     ],
         InlineKeyboardButton(text=f"🦋 Sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"),
         InlineKeyboardButton(text="🎶 ᴍᴜsɪᴄ ғᴇᴀᴛᴜʀᴇs", callback_data="alone_"),
-    ],  
+    ], 
+    [
         InlineKeyboardButton(text="• ᴡєʙ ɢᴧϻєꜱ •", url="https://telegram-game-hub.vercel.app"),
     ],
     
