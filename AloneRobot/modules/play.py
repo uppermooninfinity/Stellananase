@@ -670,3 +670,9 @@ async def slider_queries(client, CallbackQuery, _):
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
         )
 
+__mod_name__ = "play"
+__command_list__ = [
+/play
+/vplay
+/playforce
+/cplay
