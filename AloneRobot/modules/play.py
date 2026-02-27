@@ -670,17 +670,70 @@ async def slider_queries(client, CallbackQuery, _):
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
         )
 
-__mod_name__ = "play"
+__play__ = """
+* ᴍᴜsɪᴄ ᴄᴏᴍᴍᴀɴᴅs:*
+» /play <query>*:* ᴘʟᴀʏ ᴀᴜᴅɪᴏ
+» /vplay <query>*:* ᴘʟᴀʏ ᴠɪᴅᴇᴏ
+» /cplay <query>*:* ᴘʟᴀʏ ɪɴ ᴄʜᴀɴɴᴇʟ ᴍᴏᴅᴇ
+» /cvplay <query>*:* ᴘʟᴀʏ ᴠɪᴅᴇᴏ ɪɴ ᴄʜᴀɴɴᴇʟ
+» /playforce*:* ғᴏʀᴄᴇ ᴘʟᴀʏ ᴛʀᴀᴄᴋ
+» /vplayforce*:* ғᴏʀᴄᴇ ᴘʟᴀʏ ᴠɪᴅᴇᴏ
+"""
+
+# =========================
+# COMMAND HANDLERS
+# =========================
+
+PLAY_HANDLER = DisableAbleCommandHandler(
+    ["play", "vplay", "cplay", "cvplay",
+     "playforce", "vplayforce", "cplayforce", "cvplayforce"],
+    play_commnd,
+    run_async=True,
+)
+
+# =========================
+# CALLBACK HANDLERS
+# =========================
+
+MUSIC_STREAM_HANDLER = CallbackQueryHandler(
+    play_music,
+    pattern="MusicStream",
+    run_async=True,
+)
+
+ADMIN_CHECK_HANDLER = CallbackQueryHandler(
+    Sagarmous_check,
+    pattern="SagarmousAdmin",
+    run_async=True,
+)
+
+PLAYLIST_HANDLER = CallbackQueryHandler(
+    play_playlists_command,
+    pattern="SagarPlaylists",
+    run_async=True,
+)
+
+SLIDER_HANDLER = CallbackQueryHandler(
+    slider_queries,
+    pattern="slider",
+    run_async=True,
+)
+
+__mod_name__ = "Mᴜsɪᴄ"
+
 __command_list__ = [
-  "play",
-  "vplay",
-  "playforce",
-  "cplay",
-
-    ]
-
-__handlers__ = [
-    ANIMEQUOTES_HANDLER,
-    QUOTES_HANDLER,
+    "play",
+    "vplay",
+    "cplay",
+    "cvplay",
+    "playforce",
+    "vplayforce",
 ]
 
+__handlers__ = [
+    PLAY_HANDLER,
+    MUSIC_STREAM_HANDLER,
+    ADMIN_CHECK_HANDLER,
+    PLAYLIST_HANDLER,
+    SLIDER_HANDLER,
+]
