@@ -12,8 +12,8 @@ from pyrogram.types import (
     Message,
 )
 
-from Spy import app
-from Spy.utils.database import (
+from AloneRobot import app
+from AloneRobot.utils.database import (
     add_nonadmin_chat,
     get_authuser,
     get_authuser_names,
@@ -29,20 +29,20 @@ from Spy.utils.database import (
     skip_off,
     skip_on,
 )
-from Spy.utils.decorators.admins import ActualAdminCB
-from Spy.utils.decorators.language import language, languageCB
-from Spy.utils.inline.settings import (
+from AloneRobot.utils.decorators.admins import ActualAdminCB
+from AloneRobot.utils.decorators.language import language, languageCB
+from AloneRobot.utils.inline.settings import (
     auth_users_markup,
     playmode_users_markup,
     setting_markup,
     vote_mode_markup,
 )
-from Spy.utils.inline.start import private_panel
+from AloneRobot.utils.inline.start import private_panel
 from config import BANNED_USERS, OWNER_ID
 
 
 @app.on_message(
-    filters.command(["settings", "setting"]) & filters.group & ~BANNED_USERS
+    filters.command(["msettings", "msetting"]) & filters.group & ~BANNED_USERS
 )
 @language
 async def settings_mar(client, message: Message, _):
@@ -71,6 +71,26 @@ async def settings_cb(client, CallbackQuery, _):
     )
 
 
+@app.on_callback_query(filters.regex("^bot_info_data$"))
+async def show_bot_info(c: app, q: CallbackQuery):
+    start = time()
+    x = await c.send_message(q.message.chat.id, "ᴘɪɴɢ ᴘᴏɴɢ 💕..")
+    delta_ping = time() - start
+    await x.delete()
+    txt = f"""💌 ᴘɪɴɢ ᴘᴏɴɢ ʙᴀʙʏ...
+
+• ᴅᴀᴛᴀʙᴀsᴇ: ᴏɴʟɪɴᴇ
+• ʏᴏᴜᴛᴜʙᴇ ᴀᴘɪ: ʀᴇsᴘᴏɴsɪᴠᴇ
+• ʙᴏᴛ sᴇʀᴠᴇʀ: ʀᴜɴɴɪɴɢ sᴍᴏᴏᴛʜʟʏ
+• ʀᴇsᴘᴏɴsᴇ ᴛɪᴍᴇ: ᴏᴘᴛɪᴍᴀʟ
+• ᴀᴘɪ ᴘɪɴɢ: {delta_ping * 1000:.3f} ms   
+
+• ᴇᴠᴇʀʏᴛʜɪɴɢ ʟᴏᴏᴋs ɢᴏᴏᴅ!
+"""
+    await q.answer(txt, show_alert=True)
+    return
+
+    
 @app.on_callback_query(filters.regex("settingsback_helper") & ~BANNED_USERS)
 @languageCB
 async def settings_back_markup(client, CallbackQuery: CallbackQuery, _):
