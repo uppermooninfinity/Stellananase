@@ -137,7 +137,9 @@ for module_name in ALL_MODULES:
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
-    importlib.import_module(f"AloneRobot.plugins.{module_name}")
+for file in os.listdir("AloneRobot/plugins"):
+    if file.endswith(".py") and not file.startswith("__"):
+        importlib.import_module("AloneRobot.plugins." + file[:-3])
 
     if imported_module.__mod_name__.lower() not in IMPORTED:
         IMPORTED[imported_module.__mod_name__.lower()] = imported_module
