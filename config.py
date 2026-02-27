@@ -87,12 +87,12 @@ clean = {}
 autoclean = []
 
 START_IMG_URL = os.getenv(
-    "START_IMG_URL", "https://files.catbox.moe/k8ix72.jpg"
+    "START_IMG_URL", "https://litter.catbox.moe/8g81uj.jpg"
 )
 PING_IMG_URL = os.getenv(
-    "PING_IMG_URL", "https://files.catbox.moe/k8ix72.jpg"
+    "PING_IMG_URL", "https://litter.catbox.moe/8g81uj.jpg"
 )
-PLAYLIST_IMG_URL = "https://files.catbox.moe/k8ix72.jpg"
+PLAYLIST_IMG_URL = "https://litter.catbox.moe/8g81uj.jpg"
 STATS_IMG_URL = "https://files.catbox.moe/k8ix72.jpg"
 TELEGRAM_AUDIO_URL = "https://files.catbox.moe/k8ix72.jpg"
 TELEGRAM_VIDEO_URL = "https://files.catbox.moe/k8ix72.jpg"
