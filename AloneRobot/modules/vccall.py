@@ -217,3 +217,42 @@ async def vcmembers_command(_, message: Message):
     msg_text += "</blockquote>"
 
     await message.reply(msg_text)
+
+
+__vccall__ = """
+* ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ʟᴏɢɢᴇʀ:*
+» /vclogger*:* sʜᴏᴡ ᴄᴜʀʀᴇɴᴛ sᴛᴀᴛᴜs
+» /vclogger on*:* ᴇɴᴀʙʟᴇ ᴠᴄ ʟᴏɢɢɪɴɢ
+» /vclogger off*:* ᴅɪsᴀʙʟᴇ ᴠᴄ ʟᴏɢɢɪɴɢ
+» /vcmembers*:* sʜᴏᴡ ᴄᴜʀʀᴇɴᴛ ᴠᴄ ᴍᴇᴍʙᴇʀs
+» /seevc*:* ᴀʟɪᴀs ᴏғ /vcmembers
+"""
+
+# =========================
+# COMMAND HANDLERS
+# =========================
+
+VCLOGGER_HANDLER = CommandHandler(
+    "vclogger",
+    vclogger_command,
+    run_async=True,
+)
+
+VCMEMBERS_HANDLER = CommandHandler(
+    ["vcmembers", "seevc"],
+    vcmembers_command,
+    run_async=True,
+)
+
+__mod_name__ = "vccall"
+
+__command_list__ = [
+    "vclogger",
+    "vcmembers",
+    "seevc",
+]
+
+__handlers__ = [
+    VCLOGGER_HANDLER,
+    VCMEMBERS_HANDLER,
+]
