@@ -110,9 +110,7 @@ buttons = [
     ], 
     [
         InlineKeyboardButton(text="• ᴡєʙ ɢᴧϻєꜱ •", url="https://telegram-game-hub.vercel.app"),
-    ],
-    
-
+    ],    
 ]
 
 HELP_STRINGS = f"""
