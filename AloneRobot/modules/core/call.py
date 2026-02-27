@@ -1,9 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
 # All rights reserved.
 import asyncio
 import os
@@ -17,20 +11,20 @@ from pytgcalls import PyTgCalls, exceptions, types
 from pytgcalls.pytgcalls_session import PyTgCallsSession
 
 import config
-from AloneMusic import LOGGER, YouTube, app
-from AloneMusic.misc import db
-from AloneMusic.utils.database import (add_active_chat, add_active_video_chat,
+from AloneRobot import LOGGER, YouTube, app
+from AloneRobot.misc import db
+from AloneRobot.utils.database import (add_active_chat, add_active_video_chat,
                                        get_lang, get_loop, group_assistant,
                                        is_autoend, music_on,
                                        remove_active_chat,
                                        remove_active_video_chat, set_loop)
-from AloneMusic.utils.errors import capture_internal_err
-from AloneMusic.utils.exceptions import AssistantErr
-from AloneMusic.utils.formatters import (check_duration, seconds_to_min,
+from AloneRobot.utils.errors import capture_internal_err
+from AloneRobot.utils.exceptions import AssistantErr
+from AloneRobit.utils.formatters import (check_duration, seconds_to_min,
                                          speed_converter)
-from AloneMusic.utils.inline.play import stream_markup
-from AloneMusic.utils.stream.autoclear import auto_clean
-from AloneMusic.utils.thumbnails import get_thumb
+from AloneRobot.utils.inline.play import stream_markup
+from AloneRobot.utils.stream.autoclear import auto_clean
+from AloneRobot.utils.thumbnails import get_thumb
 from strings import get_string
 
 
@@ -353,7 +347,7 @@ class Call(PyTgCalls):
                     )
                     await app.send_message(
                         chat_id,
-                        "**🎵 𝐓ʜᴇ 𝐐ᴜᴇᴜᴇ 𝐇ᴀs 𝐅ɪɴɪsʜᴇᴅ. 𝐔sᴇ /play 𝐓ᴏ 𝐀ᴅᴅ 𝐌ᴏʀᴇ 𝐒ᴏɴɢs!!**",
+                        "🌷 𝐐ᴜᴇᴜᴇ 𝐅ɪɴɪsʜᴇᴅ. 𝐔sᴇ /play 𝐓ᴏ 𝐀ᴅᴅ 𝐒ᴏɴɢs!!🩵",
                         reply_markup=buttons,
                     )
                 except:
