@@ -88,9 +88,6 @@ PM_START_TEXT = """
 • 🔗 ʟɪɴᴋ, ғɪʟᴛᴇʀ & ᴍᴇᴅɪᴀ ᴄᴏɴᴛʀᴏʟ  
 • ⚙️ ғᴜʟʟʏ ᴄᴜsᴛᴏᴍɪᴢᴀʙʟᴇ ᴍᴏᴅᴜʟᴇs  
 > ━━━━━━━━━━━━━━━━━━  
-๏📖 ɢᴇᴛ sᴛᴀʀᴛᴇᴅ  
-➻ ᴛᴀᴘ ᴛʜᴇ **ʜᴇʟᴘ** ʙᴜᴛᴛᴏɴ ᴛᴏ ᴇxᴘʟᴏʀᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs
-➻ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴍᴀᴋᴇ ᴍᴇ ᴀᴅᴍɪɴ ⭐  
 
 🥀ᴍᴀᴅᴇ ʙʏ💗: [ ✦  Uᴘᴘᴇʀ ᴍᴏᴏɴ ](https://t.me/cyber_github)
 ✨ ʟᴇᴛ's ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘs ʟɪᴋᴇ ᴀ ᴘʀᴏ!*
@@ -193,7 +190,6 @@ def send_help(chat_id, text, keyboard=None):
     dispatcher.bot.send_photo(
         chat_id=chat_id,
         photo=START_IMG,
-        has_spoiler=True,
         caption=text,
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=keyboard,
@@ -258,12 +254,11 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            START_IMG,
+            photo=START_IMG,
             caption="🌷 ɪ ᴀᴍ ʟɪᴠᴇ !\n<b>✌️ɪ ᴅɪᴅɴ'ᴛ sʟᴇᴘᴛ sɪɴᴄᴇ​:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
-            has_spoiler=True,
         )
 
 
